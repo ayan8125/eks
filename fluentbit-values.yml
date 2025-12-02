@@ -1,0 +1,22 @@
+cloudWatch:
+  enabled: true
+  region: us-east-1   
+  logGroupName: /eks/game-hub
+  autoCreateGroup: true
+
+serviceAccount:
+  create: true
+  name: fluent-bit
+
+# Optional filtering to reduce noisy logs
+filters:
+  kubernetes:
+    enabled: true
+    use_journal: false
+
+# Which namespaces to collect logs from (optional)
+inputs:
+  tail:
+    enabled: true
+    path: "/var/log/containers/*.log"
+    parser: docker
