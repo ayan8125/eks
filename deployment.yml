@@ -43,19 +43,7 @@ spec:
           initialDelaySeconds: 10
           periodSeconds: 10
 
-        # ---------------------------
-        # CLOUDWATCH LOGGING VARIABLES
-        # ---------------------------
-        env:
-        - name: PYTHONUNBUFFERED
-          value: "1"
-        - name: AWS_REGION
-          value: "ap-south-1"   # change to your region
-        - name: CW_LOG_GROUP
-          value: "/eks/game-hub"
-        - name: CW_LOG_STREAM
-          value: "flask-game"
-
+       
         resources:
           requests:
             cpu: "50m"
